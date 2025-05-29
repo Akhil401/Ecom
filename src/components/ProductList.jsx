@@ -26,7 +26,7 @@ const ProductList = () => {
             {products?.map((product) => (
                <div
                   key={product.id}
-                  className="w-full sm:w-1/2 md:w-1/3 lg:w-1/5 bg-white cursor-pointer p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 bg-white cursor-pointer p-4 rounded-lg shadow-lg hover:shadow-xl hover:transition-shadow hover:duration-300"
                >
                   <img src={product.image} alt={product.title} className="w-full h-64 object-cover rounded-md mb-4" />
                   <br />
