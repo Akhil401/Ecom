@@ -11,7 +11,7 @@ function App() {
       <Provider store={store}>
          <Router>
             <Navbar />
-            <div className="container">
+            <div className="container max-w-none">
                <Routes>
                   <Route path="/" element={<HomePage />} />
                   <Route path="/home" element={<HomePage />} />

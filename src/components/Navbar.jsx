@@ -13,7 +13,7 @@ const Navbar = () => {
             <li>
                <Link
                   to="/"
-                  className="text-black border-1 border-none bg-white px-3 py-1 hover:border-orange-400 hover:border hover:border-dashed hover:text-orange-400"
+                  className="text-black border-1 border-none bg-white px-3 py-1 hover:shadow-orange-400 hover:shadow hover:shadow-dashed hover:text-orange-400"
                >
                   Home
                </Link>
@@ -21,7 +21,7 @@ const Navbar = () => {
             <li>
                <Link
                   to="/cart"
-                  className="text-black border-1 border-none bg-white px-3 py-1 hover:border-orange-400 hover:border hover:border-dashed hover:text-orange-400"
+                  className="text-black border-1 border-none bg-white px-3 py-1 hover:shadow-orange-400 hover:shadow hover:shadow-dashed hover:text-orange-400"
                >
                   Cart
                </Link>
