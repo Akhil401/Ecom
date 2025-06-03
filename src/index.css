@@ -6,8 +6,8 @@
    font-weight: 400;
 
    color-scheme: light dark;
-   color: rgba(255, 255, 255, 0.87);
-   background-color: #e0dfdf;
+   /* color: rgba(255, 255, 255, 0.87); */
+   /* background-color: #2C2C2C; */
    max-width: none;
 
    font-synthesis: none;
@@ -15,6 +15,14 @@
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
 
+}
+
+body {
+   @apply bg-white text-black
+}
+
+.dark body {
+   @apply bg-[#2C2C2C] text-white
 }
 
 /* a {

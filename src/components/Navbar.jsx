@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DarkModeToggle from './DarkModeToggle';
 
 const Navbar = () => {
    return (
@@ -9,7 +10,7 @@ const Navbar = () => {
                Commy
             </Link>
          </h2>
-         <ul className="flex space-x-4">
+         <ul className="flex space-x-4 items-center">
             <li>
                <Link
                   to="/"
@@ -25,6 +26,9 @@ const Navbar = () => {
                >
                   Cart
                </Link>
+            </li>
+            <li>
+               <DarkModeToggle />
             </li>
          </ul>
       </nav>
