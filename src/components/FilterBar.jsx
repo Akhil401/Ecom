@@ -4,7 +4,6 @@ import { fetchProducts } from '../redux/actions/productActions';
 import Select from './Select';
 import SearchBar from './SearchBar';
 import { fetchCategories } from '../redux/actions/categoryActions';
-import { SORT_BY_OPTIONS } from '../utils/constants';
 
 const FilterBar = () => {
    const dispatch = useDispatch();
