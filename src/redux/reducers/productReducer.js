@@ -5,8 +5,13 @@ const initialState = {
    products: [],
    error: ''
 };
+const initialStateCategories = {
+   loading: false,
+   categories: [],
+   error: ''
+};
 
-const productReducer = (state = initialState, action) => {
+export const productReducer = (state = initialState, action) => {
    switch (action.type) {
       case FETCH_PRODUCTS_REQUEST:
          return { ...state, loading: true };
@@ -18,5 +23,3 @@ const productReducer = (state = initialState, action) => {
          return state;
    }
 };
-
-export default productReducer;

@@ -1,28 +1,18 @@
 import axios from 'axios';
+import { API_BASE_URL } from '../../utils/constants';
 
 export const FETCH_PRODUCTS_REQUEST = 'FETCH_PRODUCTS_REQUEST';
 export const FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS';
 export const FETCH_PRODUCTS_FAILURE = 'FETCH_PRODUCTS_FAILURE';
 
-export const fetchProducts = (id, limit, sort, categories, specificCat) => async (dispatch) => {
+export const fetchProducts = (url, params) => async (dispatch) => {
    dispatch({ type: FETCH_PRODUCTS_REQUEST });
-   var params = '';
-   if (id) {
-      params = id;
-   } else if (limit) {
-      params = `limit=${limit}`;
-   } else if (sort) {
-      params = `sort=${sort}`;
-   } else if (categories) {
-      params = categories;
-   } else if (categories && specificCat) {
-      params = `${categories}/${specificCat}`;
-   }
+
    try {
-      const response = await axios.get(`https://fakestoreapi.com/products/${params}`);
+      const response = await axios.get(`${url ? url : API_BASE_URL}${params || ''}`);
       dispatch({
          type: FETCH_PRODUCTS_SUCCESS,
-         payload: response.data
+         payload: response.data.products
       });
    } catch (error) {
       dispatch({
