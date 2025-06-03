@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import Navbar from './components/Navbar';
 import CartPage from './pages/CartPage';
 import './App.css';
+import LinksBar from './components/LinksBar';
 
 function App() {
    return (
@@ -18,6 +19,7 @@ function App() {
                   <Route path="/cart" element={<CartPage />} />
                </Routes>
             </div>
+            <LinksBar />
          </Router>
       </Provider>
    );
