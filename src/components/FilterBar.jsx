@@ -19,7 +19,7 @@ const FilterBar = () => {
    };
 
    return (
-      <div className="flex items-center justify-around px-4 w-full text-white">
+      <div className="flex items-center justify-around px-4 w-full flex-wrap text-white">
          <SearchBar />
          <section className="flex items-center gap-4">
             <Select placeholder="Select a category" options={categories} callbackFn={onSelectOption} />

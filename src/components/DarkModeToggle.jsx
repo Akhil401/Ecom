@@ -25,15 +25,15 @@ const DarkModeToggle = () => {
                   theme === 'light' ? 'bg-white text-black shadow-md' : 'text-white'
                }`}
             >
-               ☀️ Light
+               ☀️
             </button>
             <button
                onClick={() => setTheme('dark')}
-               className={`px-4  rounded-full transition-all duration-200 ${
+               className={`px-4 rounded-full transition-all duration-200 ${
                   theme === 'dark' ? 'bg-black text-white shadow-md' : 'text-gray-400'
                }`}
             >
-               🌙 Dark
+               🌙
             </button>
          </div>
       </div>

@@ -5,11 +5,6 @@ const initialState = {
    products: [],
    error: ''
 };
-const initialStateCategories = {
-   loading: false,
-   categories: [],
-   error: ''
-};
 
 export const productReducer = (state = initialState, action) => {
    switch (action.type) {

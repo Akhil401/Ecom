@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../redux/actions/productActions';
-import { addToCart } from '../redux/actions/cartActions';
+import { addToCart } from '../redux/cartSlicer';
 import StarRating from './StarRating';
 import ShimmerUIForProducts from './ShimmerUIForProducts';
+import { Bounce, toast, Zoom } from 'react-toastify';
 
 const ProductList = () => {
    const dispatch = useDispatch();
@@ -17,17 +18,17 @@ const ProductList = () => {
 
    const handleAddToCart = (product) => {
       dispatch(addToCart(product));
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-      const existingIndex = cart.findIndex((item) => item.id === product.id);
-
-      if (existingIndex !== -1) {
-         cart[existingIndex].quantity += 1;
-      } else {
-         cart.push({ ...product, quantity: 1 });
-      }
-
-      localStorage.setItem('cart', JSON.stringify(cart));
+      toast.success(`${product.title} added to cart!`, {
+         position: 'top-center',
+         autoClose: 3000,
+         hideProgressBar: false,
+         closeOnClick: true,
+         pauseOnHover: true,
+         draggable: true,
+         progress: undefined,
+         theme: 'light',
+         transition: Zoom
+      });
    };
 
    if (loading) return <ShimmerUIForProducts />;
