@@ -1,23 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { MdDelete } from 'react-icons/md';
 import { removeFromCart } from '../redux/actions/cartActions';
 
 const Cart = () => {
-   const dispatch = useDispatch(),
-      { cart } = useSelector((state) => state.cart),
-      total = cart.reduce((acc, item) => acc + item.price, 0);
+   const dispatch = useDispatch();
+   const [cart, setCart] = useState([]);
+
+   useEffect(() => {
+      const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+      setCart(storedCart);
+   }, []);
+
+   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
    const handleRemove = (id) => {
       dispatch(removeFromCart(id));
+      const cart = JSON.parse(localStorage.getItem('cart')) || [],
+         updatedCart = cart.filter((item) => item.id !== id);
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+      setCart(updatedCart);
    };
 
    return (
       <div className="container mx-auto p-4">
          <h2 className="text-2xl font-bold mb-6">Your Cart</h2>
          {cart.length === 0 ? (
-            <p className="text-center text-xl">Your cart is empty.</p>
+            <span className="text-center text-xl">Your cart is empty.</span>
          ) : (
             <div>
                <div className="flex flex-col gap-4">
@@ -30,9 +40,10 @@ const Cart = () => {
                            <img src={item.image} alt={item.title} className="w-16 h-16 object-cover rounded-md sm:w-24 sm:h-24" />
                            <div className="flex grow gap-12 justify-between items-center ">
                               <h3 className="text-lg min-w-32 w-90 text-center font-semibold">{item.title}</h3>
-                              <p className="text-orange-500 text-center">${item.price}</p>
+                              <p className="text-orange-500 text-center">€{item.price * item.quantity}</p>
                            </div>
                         </div>
+                        <span>Quantity: {item.quantity}</span>
                         <MdDelete
                            className=" text-3xl cursor-pointer text-red-500 mt-2 sm:mt-0"
                            onClick={() => handleRemove(item.id)}

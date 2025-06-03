@@ -18,12 +18,13 @@ const DarkModeToggle = () => {
 
    return (
       <div className="flex items-center justify-center">
-         <div className="flex items-center gap-2 bg-gray-200 dark:bg-gray-700 rounded-full p-1">
+         <div className="flex items-center gap-2 bg-white rounded-full dark:bg-gray-700  p-1">
             <button
                onClick={() => setTheme('light')}
                className={`px-4 rounded-full transition-all duration-200 ${
-                  theme === 'light' ? 'bg-white text-black shadow-md' : 'text-gray-500'
+                  theme === 'light' ? 'bg-white text-black shadow-md' : 'text-white'
                }`}
+               s
             >
                ☀️ Light
             </button>
