@@ -34,11 +34,14 @@ const ProductList = () => {
    if (error) return <div className="text-center py-4 text-red-500">Error: {error}</div>;
 
    return (
-      <div className="mt-12 ">
+      <div className="mt-12">
          <div className="flex px-12 flex-wrap gap-6 max-w-none justify-center">
             {products?.length > 0 &&
                products.map((product) => (
-                  <div key={product.id} className="w-full max-w-300 sm:w-1/2 md:w-1/3 lg:w-1/5 bg-white p-4 rounded-lg ">
+                  <div
+                     key={product.id}
+                     className="w-full max-w-300 sm:w-1/2 md:w-1/3 lg:w-1/5 bg-gray-300 dark:bg-white p-4 rounded-lg "
+                  >
                      <img src={product.images[0]} alt={product.title} className="w-full h-48 object-cover rounded-md mb-4" />
                      <h3
                         className="text-lg font-semibold text-black block"
