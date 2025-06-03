@@ -19,10 +19,9 @@ const FilterBar = () => {
    };
 
    return (
-      <div className="flex items-center justify-around p-4 w-full text-white">
+      <div className="flex items-center justify-around px-4 w-full text-white">
          <SearchBar />
          <section className="flex items-center gap-4">
-            {/* <Select placeholder="Sort by" options={SORT_BY_OPTIONS} callbackFn={onSelectOption} /> */}
             <Select placeholder="Select a category" options={categories} callbackFn={onSelectOption} />
          </section>
       </div>

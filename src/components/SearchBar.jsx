@@ -16,7 +16,7 @@ const SearchBar = () => {
          <input
             type="text"
             placeholder="Search for products..."
-            className="w-2xl max-w-xs p-2 text-black bg-white border border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+            className="w-2xl max-w-xs p-2 text-black border border-gray-300 rounded focus:outline-none bg-gray-400 border-gray-300 dark:text-black dark:bg-white rounded-md dark:focus:outline-none"
             onChange={(e) => setSeachTerm(e.target.value)}
             value={searchTerm}
             onKeyDown={(e) => {
