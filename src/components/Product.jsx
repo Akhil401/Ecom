@@ -13,7 +13,7 @@ const Product = () => {
 
    return (
       <div className="w-full flex flex-col items-center p-8 my-12 ">
-         {/* <secion className=" flex items-center gap-20 w-full p-6 ">
+         <secion className=" flex items-center gap-20 w-full p-6 ">
             <img
                src={product?.images?.[0] || ''}
                alt={product?.title || 'Product Image'}
@@ -27,7 +27,7 @@ const Product = () => {
                </button>
             </secion>
          </secion>
-         <section></section> */}
+         <section></section>
       </div>
    );
 };
