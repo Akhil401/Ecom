@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { MdDelete } from 'react-icons/md';
 import { clearCart, removeFromCart } from '../redux/cartSlicer';
+import EmptyCart from './EmptyCart';
 
 const Cart = () => {
    const dispatch = useDispatch();
@@ -16,9 +17,8 @@ const Cart = () => {
 
    return (
       <div className="container mx-auto p-4">
-         <h2 className="text-2xl font-bold mb-6">Your Cart</h2>
          {cartItems.length === 0 ? (
-            <span className="text-center text-xl">Your cart is empty.</span>
+            <EmptyCart />
          ) : (
             <div>
                <div className="flex flex-col gap-4">
@@ -64,12 +64,6 @@ const Cart = () => {
                </div>
             </div>
          )}
-
-         <div className="mt-4 text-center">
-            <Link to="/home" className="text-blue-500">
-               Back to Products
-            </Link>
-         </div>
       </div>
    );
 };

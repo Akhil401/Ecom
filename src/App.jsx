@@ -1,28 +1,54 @@
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import store from './redux/store';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Navbar from './components/Navbar';
 import CartPage from './pages/CartPage';
 import './App.css';
 import LinksBar from './components/LinksBar';
+import { ToastContainer } from 'react-toastify';
+import Product from './components/Product';
+import { useLocation } from 'react-router-dom';
 
 function App() {
+   const location = useLocation();
+   const hideLinksBarRoutes = ['/cart', '/checkout'];
+   const hideLinksBar = hideLinksBarRoutes.includes(location.pathname);
+
    return (
       <Provider store={store}>
-         <Router>
-            <Navbar />
-            <div className="container max-w-none">
-               <Routes>
-                  <Route path="/" element={<HomePage />} />
-                  <Route path="/home" element={<HomePage />} />
-                  <Route path="/cart" element={<CartPage />} />
-               </Routes>
-            </div>
-            <LinksBar />
-         </Router>
+         <ToastContainer />
+         <Navbar />
+         <Outlet />
+         {/* {!hideLinksBar && <LinksBar />} */}
       </Provider>
    );
 }
 
-export default App;
+const appRouter = createBrowserRouter([
+   {
+      path: '/',
+      element: <App />,
+      errorElement: <div>Page not found</div>,
+      children: [
+         {
+            path: '/',
+            element: <HomePage />
+         },
+         {
+            path: '/home',
+            element: <HomePage />
+         },
+         {
+            path: '/cart',
+            element: <CartPage />
+         },
+         {
+            path: '/products/:productId',
+            element: <Product />
+         }
+      ]
+   }
+]);
+
+export default appRouter;

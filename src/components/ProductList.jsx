@@ -5,6 +5,7 @@ import { addToCart } from '../redux/cartSlicer';
 import StarRating from './StarRating';
 import ShimmerUIForProducts from './ShimmerUIForProducts';
 import { Bounce, toast, Zoom } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 const ProductList = () => {
    const dispatch = useDispatch();
@@ -39,7 +40,9 @@ const ProductList = () => {
          <div className="flex px-12 flex-wrap gap-6 max-w-none justify-center">
             {products?.length > 0 &&
                products.map((product) => (
-                  <div
+                  // <Link to={`/products/${product.id}`} key={product.id} className="w-full max-w-300 sm:w-1/2 md:w-1/3 lg:w-1/5">
+                  <Link
+                     to={`/products/${product.id}`}
                      key={product.id}
                      className="w-full max-w-300 sm:w-1/2 md:w-1/3 lg:w-1/5 bg-gray-300 dark:bg-white p-4 rounded-lg "
                   >
@@ -78,7 +81,8 @@ const ProductList = () => {
                      >
                         Add to Cart
                      </button>
-                  </div>
+                  </Link>
+                  // </Link>
                ))}
          </div>
       </div>
