@@ -26,6 +26,14 @@ const Navbar = () => {
                   Home
                </Link>
             </li>
+            <li>
+               <Link
+                  to="/contact"
+                  className="text-black dark:text-white border-1 border-none px-3 py-1 hover:shadow-orange-400 hover:shadow hover:shadow-dashed hover:text-orange-400"
+               >
+                  Contact Us
+               </Link>
+            </li>
             <li className="relative">
                <Link
                   to="/cart"

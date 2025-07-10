@@ -9,6 +9,7 @@ import LinksBar from './components/LinksBar';
 import { ToastContainer } from 'react-toastify';
 import Product from './components/Product';
 import { useLocation } from 'react-router-dom';
+import Contact from './pages/Contact';
 
 function App() {
    const location = useLocation();
@@ -46,6 +47,10 @@ const appRouter = createBrowserRouter([
          {
             path: '/products/:productId',
             element: <Product />
+         },
+         {
+            path: '/contact',
+            element: <Contact />
          }
       ]
    }

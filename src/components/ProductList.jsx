@@ -17,7 +17,9 @@ const ProductList = () => {
       dispatch(fetchProducts());
    }, [dispatch]);
 
-   const handleAddToCart = (product) => {
+   const handleAddToCart = (e, product) => {
+      e.preventDefault();
+      e.stopPropagation();
       dispatch(addToCart(product));
       toast.success(`${product.title} added to cart!`, {
          position: 'top-center',
@@ -76,7 +78,7 @@ const ProductList = () => {
                         </span>
                      </div>
                      <button
-                        onClick={() => handleAddToCart(product)}
+                        onClick={(e) => handleAddToCart(e, product)}
                         className="mt-4 w-full py-2 bg-blue-500 text-white cursor-pointer font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
                      >
                         Add to Cart

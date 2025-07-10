@@ -1,16 +1,20 @@
 import { Link } from 'react-router-dom';
 import DarkModeToggle from './DarkModeToggle';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 const LinksBar = () => {
+   const dispatch = useDispatch();
    const cartItems = useSelector((state) => state.cart.items),
       { products, loading, error } = useSelector((state) => state.products),
-      { product, loadingp, errorp } = useSelector((state) => state.productById);
+      { product, loadingp } = useSelector((state) => state.productById);
    const [UILoading, setUILoading] = useState(loading || loadingp || true);
 
    useEffect(() => {
-      setUILoading(loading);
+      console.log('loading:', loading);
+      console.log('loadingp:', loadingp);
+
+      setUILoading(loadingp);
    }, [loading, loadingp]);
 
    return (
